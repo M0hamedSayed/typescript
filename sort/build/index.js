@@ -1,22 +1,25 @@
 "use strict";
-class Sorter {
-    constructor(collection) {
-        this.collection = collection;
-    }
-    ;
-    sort() {
-        const { length } = this.collection;
-        for (let i = 0; i < length; i++) {
-            for (let j = 0; j < length - i - 1; j++) {
-                if (this.collection[j] > this.collection[j + 1]) {
-                    const leftHand = this.collection[j];
-                    this.collection[j] = this.collection[j + 1];
-                    this.collection[j + 1] = leftHand;
-                }
-            }
-        }
-    }
-}
-const sorter = new Sorter([]);
-sorter.sort();
-console.log(sorter.collection);
+Object.defineProperty(exports, "__esModule", { value: true });
+const NumberCollection_1 = require("./NumberCollection");
+const Sorter_1 = require("./Sorter");
+const CharacterCollection_1 = require("./CharacterCollection");
+const LinkedList_1 = require("./LinkedList");
+const numberCollection = new NumberCollection_1.NumberCollection([10, 3, -1, 5]);
+const numberSorter = new Sorter_1.Sorter(numberCollection);
+numberSorter.sort();
+console.log(numberCollection.data);
+console.log('*********************');
+const characterCollection = new CharacterCollection_1.CharacterCollection('mohamed');
+const characterSorter = new Sorter_1.Sorter(characterCollection);
+characterSorter.sort();
+console.log('*********************');
+const linkedList = new LinkedList_1.LinkedList();
+linkedList.add(500);
+linkedList.add(-300);
+linkedList.add(400);
+linkedList.add(-100);
+linkedList.add(700);
+const linkedListSorter = new Sorter_1.Sorter(linkedList);
+linkedListSorter.sort();
+linkedList.print();
+console.log(characterCollection.data);
